@@ -5,7 +5,7 @@ import NavbarLayOut from "./NavbarLayOut/NavbarLayOut";
 
 const Main = () => {
     return (
-        <div>
+        <div className="font-serif">
             <NavbarLayOut>
             <Outlet></Outlet>
             <Footer></Footer>
