@@ -8,7 +8,7 @@ const NavbarLayOut = ({children}) => {
     const navItems = <>
     <li><Link to="/">Home</Link> </li>
     <li><Link to="/">Membership</Link></li>
-    <li><Link to="/"><AiOutlineBell className=""></AiOutlineBell></Link></li>
+    <li><Link to="/"><AiOutlineBell className="mt-2"></AiOutlineBell></Link></li>
     <li><Link to="/">Join Us</Link></li>
     
     
@@ -38,7 +38,7 @@ const NavbarLayOut = ({children}) => {
        {/* Navbar */}
        <div className="w-full navbar bg-black text-purple-200 ">
          <div className="flex-none lg:hidden">
-           <label htmlFor="my-drawer-3" aria-label="open sidebar" className="btn btn-square btn-ghost">
+           <label htmlFor="my-drawer-3" aria-label="open sidebar" className="btn btn-square  hover:bg-purple-400">
              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
            </label>
          </div> 
