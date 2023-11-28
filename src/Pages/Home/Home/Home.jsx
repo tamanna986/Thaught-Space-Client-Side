@@ -1,3 +1,5 @@
+
+import { Helmet } from "react-helmet-async";
 import Announcement from "../../Announcement/Announcement";
 import Banner from "../Banner/Banner";
 import Posts from "../Posts/Posts";
@@ -6,6 +8,9 @@ import Tags from "../Tags/Tags";
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Thaught Space | Home</title>
+            </Helmet>
             <Banner></Banner>
             <div className="space-y-20 grid grid-cols-4 gap-4 mb-96 ">
                 <div className="col-span-3">

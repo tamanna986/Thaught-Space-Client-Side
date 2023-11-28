@@ -6,6 +6,7 @@ import NavbarLayOut from "./NavbarLayOut/NavbarLayOut";
 const Main = () => {
     return (
         <div className="font-serif">
+           
             <NavbarLayOut>
             <Outlet></Outlet>
             <Footer></Footer>
