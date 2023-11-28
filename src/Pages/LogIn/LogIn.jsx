@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 
 const LogIn = () => {
@@ -11,9 +13,12 @@ const LogIn = () => {
     return (
         <div className="hero min-h-screen bg-slate-950 ">
        
-          
-          <div className="card  w-full max-w-sm shadow-3xl bg-black ">
+          <Helmet>
+            <title>Thaught Space | Log In</title>
+          </Helmet>
+          <div className="card  w-full max-w-sm shadow-3xl bg-black my-20 ">
             <form onSubmit={handleLogIn} className="card-body ">
+            <img className="w-14 rounded-full mx-auto" src="https://i.ibb.co/q17cgRQ/2.png" alt="" />
               <div className="form-control text-lg ">
                 <label className="label">
                   <span className="label-text text-white">Email</span>
@@ -36,6 +41,7 @@ const LogIn = () => {
               <div className="form-control mt-6">
                 <button className="btn text-black  bg-purple-300">Google</button>
               </div>
+              <h1 className="text-center mt-3 text-purple-100">Dont have an account? <span className="underline"><Link to = "/register">Register here</Link></span></h1>
             </form>
           </div>
         

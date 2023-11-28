@@ -9,7 +9,7 @@ const NavbarLayOut = ({children}) => {
     <li><Link to="/">Home</Link> </li>
     <li><Link to="/membership">Membership</Link></li>
     <li><Link to="/"><AiOutlineBell className="mt-2"></AiOutlineBell></Link></li>
-    <li><Link to="/login">Join Us</Link></li>
+    <li><Link to="/register">Join Us</Link></li>
     
     
     
