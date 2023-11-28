@@ -7,7 +7,7 @@ const NavbarLayOut = ({children}) => {
 
     const navItems = <>
     <li><Link to="/">Home</Link> </li>
-    <li><Link to="/">Membership</Link></li>
+    <li><Link to="/membership">Membership</Link></li>
     <li><Link to="/"><AiOutlineBell className="mt-2"></AiOutlineBell></Link></li>
     <li><Link to="/">Join Us</Link></li>
     
