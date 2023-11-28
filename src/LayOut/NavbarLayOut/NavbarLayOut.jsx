@@ -1,32 +1,34 @@
 import { Link } from "react-router-dom";
 import { AiOutlineBell } from "react-icons/ai";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const NavbarLayOut = ({children}) => {
 
-
+  const { user, logOut } = useContext(AuthContext)
+  const handleSignOut = () => {
+    logOut();
+  }
     const navItems = <>
     <li><Link to="/">Home</Link> </li>
     <li><Link to="/membership">Membership</Link></li>
     <li><Link to="/"><AiOutlineBell className="mt-2"></AiOutlineBell></Link></li>
-    <li><Link to="/register">Join Us</Link></li>
     
     
-    
-   
-    {/* { user?.email ?  <>
-        <li><Link to="/createassignments">Create Assignment</Link> </li>
-        <li><Link to="/allSubmittedAssignments">Submitted Assignment</Link> </li>
-        <li><Link to="/myAssignment">My Assignment</Link> </li>
+    { user?.email ?  <>
+        
         <li><button onClick={handleSignOut}>Log out</button></li>
         
     </> 
     : 
     <>
-      <li> <Link to="/login">Login</Link> </li>
-      <li> <Link to="/register">Register</Link> </li>
+      <li><Link to="/login">Join Us</Link></li>
     </>
-   } */}
+   }
+    
+   
+
    
 </>
 
@@ -52,8 +54,36 @@ const NavbarLayOut = ({children}) => {
              {navItems}
              {/* {
                user && <img className="w-10 rounded-full mx-1 lg:mx-2" src={user.photoURL} alt={user.displayName}
-               title={user.displayName} />
+              //  title={user.displayName}
+                />
              } */}
+     {
+    //   user && <li>
+    //   <details>
+    //     <summary>
+        
+    //         <img className="w-10 rounded-full mx-1 lg:mx-2 " src={user.photoURL} alt={user.displayName}
+    //         //  title={user.displayName}
+    //           />
+           
+    //     </summary>
+    //     <ul className="p-10 bg-base-100 rounded-t-none">
+    //         <li><a>Link 1</a></li>
+    //         <li><a>Link 2</a></li>
+    //       </ul>
+    //   </details>
+    // </li>
+    user && <ul>
+<li>
+          <a ><img className="w-10 rounded-full mx-1 lg:mx-2 " src={user.photoURL} 
+          alt={user.displayName} /></a>
+          <ul className="p-2">
+            <li><a>Submenu 1</a></li>
+            <li><a>Submenu 2</a></li>
+          </ul>
+        </li>
+    </ul>
+     }
            </ul>
          </div>
        </div>
@@ -65,10 +95,11 @@ const NavbarLayOut = ({children}) => {
        <ul className="menu p-4 w-80 min-h-full bg-black text-purple-200 text-lg">
          {/* Sidebar content here */}
          {navItems}
-         {/* {
+         {
                user && <img className="w-10 rounded-full mx-1 lg:mx-2" src={user.photoURL} alt={user.displayName}
-               title={user.displayName} />
-             } */}
+              //  title={user.displayName}
+                />
+             }
          
        </ul>
      </div>
