@@ -8,6 +8,13 @@ import LogIn from "../Pages/LogIn/LogIn";
 import Register from "../Pages/Register/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../LayOut/Dashboard/Dashboard";
+import MyProfile from "../Pages/DashBoardItems/MyProfile/MyProfile";
+import AddPosts from "../Pages/DashBoardItems/AddPosts/AddPosts";
+import MyPosts from "../Pages/DashBoardItems/MyPosts/MyPosts";
+
+
 
   export const router = createBrowserRouter([
     {
@@ -31,7 +38,32 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
             path: "/register",
             element: <Register></Register>,   
         }
+        
       ]
     },
+    {
+      path: "dashboard",
+      element: <Dashboard></Dashboard>,
+      errorElement: <ErrorPage></ErrorPage>,
+      children: [
+        {
+          path: "myprofile",
+          element: <MyProfile></MyProfile>
+          
+        },
+        {
+          path: "addposts",
+          element: <AddPosts></AddPosts> 
+          
+        },
+        {
+          path: "myposts",
+          element: <MyPosts></MyPosts>
+          
+        },
+      ]
+    }
+
+    
   ]);
   

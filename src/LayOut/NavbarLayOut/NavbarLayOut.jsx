@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 
+
 const NavbarLayOut = ({children}) => {
 
   const { user, logOut } = useContext(AuthContext)
@@ -18,7 +19,26 @@ const NavbarLayOut = ({children}) => {
     
     { user?.email ?  <>
         
-        <li><button onClick={handleSignOut}>Log out</button></li>
+      <div className="dropdown mr-2  md:mr-14">
+  <label tabIndex={0} className="">
+  <img className="w-10 rounded-full mx-1 lg:mx-2" src={user.photoURL} alt={user.displayName}
+   
+      />
+  </label>
+  <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-32 ">
+    
+      
+      <div className="space-y-5 py-3 px-1">
+      <p className="text-purple-500 font-semibold font-lg">{user.displayName}</p>
+      <p><Link className="text-purple-500 font-semibold font-lg" to ="/dashboard">Dashboard</Link></p>
+      <li ><button className=" font-semibold btn bg-purple-300 border-0 border-b-4 border-purple-800 p-3 text-white font-lg " onClick={handleSignOut}>Log out</button></li>
+
+      </div>      
+    
+
+    
+  </ul>
+</div>
         
     </> 
     : 
@@ -49,41 +69,11 @@ const NavbarLayOut = ({children}) => {
            <img className="w-52" src="https://i.ibb.co/C1RcMgt/Screenshot-2023-11-24-143735.png" alt="" />
          </div>
          <div className="flex-none hidden lg:block bg-black">
-           <ul className="menu menu-horizontal text-purple-200 text-lg">
+           <ul className="menu menu-horizontal text-purple-200 text-lg ">
              {/* Navbar menu content here */}
              {navItems}
-             {/* {
-               user && <img className="w-10 rounded-full mx-1 lg:mx-2" src={user.photoURL} alt={user.displayName}
-              //  title={user.displayName}
-                />
-             } */}
-     {
-    //   user && <li>
-    //   <details>
-    //     <summary>
-        
-    //         <img className="w-10 rounded-full mx-1 lg:mx-2 " src={user.photoURL} alt={user.displayName}
-    //         //  title={user.displayName}
-    //           />
-           
-    //     </summary>
-    //     <ul className="p-10 bg-base-100 rounded-t-none">
-    //         <li><a>Link 1</a></li>
-    //         <li><a>Link 2</a></li>
-    //       </ul>
-    //   </details>
-    // </li>
-    user && <ul>
-<li>
-          <a ><img className="w-10 rounded-full mx-1 lg:mx-2 " src={user.photoURL} 
-          alt={user.displayName} /></a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-    </ul>
-     }
+            
+
            </ul>
          </div>
        </div>
@@ -95,11 +85,7 @@ const NavbarLayOut = ({children}) => {
        <ul className="menu p-4 w-80 min-h-full bg-black text-purple-200 text-lg">
          {/* Sidebar content here */}
          {navItems}
-         {
-               user && <img className="w-10 rounded-full mx-1 lg:mx-2" src={user.photoURL} alt={user.displayName}
-              //  title={user.displayName}
-                />
-             }
+        
          
        </ul>
      </div>

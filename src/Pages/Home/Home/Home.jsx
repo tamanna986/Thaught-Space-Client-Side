@@ -17,7 +17,7 @@ const Home = () => {
                 <Announcement></Announcement>
                 <Posts></Posts>
                 </div>
-                <div className="relative lg:fixed lg:top-0 lg:right-0  w-32 ">
+                <div className="relative lg:fixed lg:top-28 lg:right-0  md:w-32 ">
                  <Tags></Tags>
                 </div>
             </div>
