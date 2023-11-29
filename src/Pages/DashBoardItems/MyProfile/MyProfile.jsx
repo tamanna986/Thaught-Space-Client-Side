@@ -1,10 +1,11 @@
-import React from 'react';
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+
 
 const MyProfile = () => {
     return (
-        <div>
-            <h1>mp</h1>l
-        </div>
+        <div >
+        <SectionTitle  heading = {"My Profile"}></SectionTitle>
+    </div>
     );
 };
 

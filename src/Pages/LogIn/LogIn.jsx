@@ -3,9 +3,12 @@ import { Helmet } from "react-helmet-async";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { FaGoogle } from "react-icons/fa";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const LogIn = () => {
+    const axiosPublic = useAxiosPublic();
     const { signIn,signInWithGoogle, user } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -23,6 +26,7 @@ const LogIn = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
+                
                 console.log(user);
                 Swal.fire({
                     title: 'User Login Successful.',
@@ -42,18 +46,37 @@ const LogIn = () => {
       const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(result => {
-                
+              const userInfo = {
+                email: result.user?.email,
+                name: result.user?.displayName,
+                photo: result.user?.photoURL
+            }
+
+            axiosPublic.post('/users', userInfo)
+            .then(res =>{
+                console.log(res.data);
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'Log In Sucessful',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+              //      // to go to desired page using navigate
+              navigate(from, { replace: true });
+                navigate('/');
+            })
                 // console.log(result.user)
       
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Log In Sucessful',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-                //      // to go to desired page using navigate
-                navigate(from, { replace: true });
+                // Swal.fire({
+                //     position: 'top-end',
+                //     icon: 'success',
+                //     title: 'Log In Sucessful',
+                //     showConfirmButton: false,
+                //     timer: 1500
+                //   })
+                // //      // to go to desired page using navigate
+                // navigate(from, { replace: true });
 
 
             })
@@ -92,8 +115,8 @@ const LogIn = () => {
               </div>
               <div className="divider divider-primary text-white">Or Log In with</div>
               <div className="form-control mt-6">
-              <input onClick={handleGoogleSignIn}  className="btn text-black  bg-purple-300" type="submit" value="Google" />
-              {/* <button  onClick={handleGoogleSignIn} className="btn text-black  bg-purple-300" >Google</button> */}
+              {/* <input onClick={handleGoogleSignIn}  className="btn text-black  bg-purple-300" type="submit" value="Google" /> */}
+              <button  onClick={handleGoogleSignIn} className="btn text-black  bg-purple-300" ><FaGoogle></FaGoogle> Google</button>
               </div>
               <h1 className="text-center mt-3 text-purple-100">Dont have an account? <span className="underline"><Link to = "/register">Register here</Link></span></h1>
             </form>

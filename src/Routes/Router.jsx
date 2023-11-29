@@ -43,7 +43,7 @@ import MyPosts from "../Pages/DashBoardItems/MyPosts/MyPosts";
     },
     {
       path: "dashboard",
-      element: <Dashboard></Dashboard>,
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       errorElement: <ErrorPage></ErrorPage>,
       children: [
         {

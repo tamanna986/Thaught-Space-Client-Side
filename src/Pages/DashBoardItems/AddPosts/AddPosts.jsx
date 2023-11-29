@@ -1,9 +1,10 @@
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 
 const AddPosts = () => {
     return (
-        <div>
-           <h1>ap</h1> 
+        <div >
+            <SectionTitle heading = {"Add Posts"}></SectionTitle>
         </div>
     );
 };

@@ -1,15 +1,44 @@
-import { FaAd, FaBookOpen, FaBookReader, FaCalendar, FaHome, FaList, FaSearch, FaShoppingCart } from "react-icons/fa";
+import { FaAd, FaBookOpen, FaBookReader, FaCalendar, FaComment, FaHome, FaList, FaSearch, FaShoppingCart, FaSoundcloud, FaUser } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 const Dashboard = () => {
+    const isAdmin = true;
     return (
         <div className="flex">
             {/* dashboard side bar */}
-            <div className="w-64 min-h-screen bg-purple-300">
+            <div className="w-64 min-h-screen bg-black text-purple-300">
                 <ul className="menu p-4 text-lg font-semibold ">
-                    <li>
+                       {
+                        isAdmin? 
+                        <>
+                   
+                         <li>
                         <NavLink to="/dashboard/myprofile">
                             <FaHome></FaHome>
-                            My Profile</NavLink>
+                            Admin Profile </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/addposts">
+                            
+                            <FaUser></FaUser>
+                            Manage Users</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/myposts">
+                            <FaComment></FaComment>
+                            Reported Comments/Activities </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/myposts">
+                            <FaSoundcloud></FaSoundcloud>
+                            Make Announcement </NavLink>
+                    </li>
+                        </>
+                         :
+                        <>
+                         <li>
+                        <NavLink to="/dashboard/myprofile">
+                            <FaHome></FaHome>
+                            My User Profile</NavLink>
                     </li>
                     <li>
                         <NavLink to="/dashboard/addposts">
@@ -22,9 +51,12 @@ const Dashboard = () => {
                             <FaBookReader></FaBookReader>
                            My Post </NavLink>
                     </li>
+                        </>
+
+                       }
                     
                     
-                    <div className="divider"></div>
+                    <div className="divider divider-primary "></div>
                     <li>
                         <NavLink to="/">
                             <FaHome></FaHome>
