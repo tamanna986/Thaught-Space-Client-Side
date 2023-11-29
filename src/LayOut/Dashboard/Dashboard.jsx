@@ -1,11 +1,12 @@
-import { FaAd, FaBookOpen, FaBookReader, FaCalendar, FaComment, FaHome, FaList, FaSearch, FaShoppingCart, FaSoundcloud, FaUser } from "react-icons/fa";
+import { FaAd, FaBookOpen, FaBookReader, FaCalendar, FaComment, FaFileInvoice, FaHome, FaList, FaSearch, FaShoppingCart, FaSoundcloud, FaUser } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 const Dashboard = () => {
     const isAdmin = true;
     return (
         <div className="flex">
             {/* dashboard side bar */}
-            <div className="w-64 min-h-screen bg-black text-purple-300">
+            <div className="w-64 md:w-72 min-h-screen bg-black text-purple-300">
+            <img className="w-48 my-4" src="https://i.ibb.co/C1RcMgt/Screenshot-2023-11-24-143735.png" alt="" />
                 <ul className="menu p-4 text-lg font-semibold ">
                        {
                         isAdmin? 
@@ -17,7 +18,7 @@ const Dashboard = () => {
                             Admin Profile </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/dashboard/addposts">
+                        <NavLink to="/dashboard/allusers">
                             
                             <FaUser></FaUser>
                             Manage Users</NavLink>
@@ -25,11 +26,11 @@ const Dashboard = () => {
                     <li>
                         <NavLink to="/dashboard/myposts">
                             <FaComment></FaComment>
-                            Reported Comments/Activities </NavLink>
+                            Reported Activities </NavLink>
                     </li>
                     <li>
                         <NavLink to="/dashboard/myposts">
-                            <FaSoundcloud></FaSoundcloud>
+                            <FaFileInvoice></FaFileInvoice>
                             Make Announcement </NavLink>
                     </li>
                         </>

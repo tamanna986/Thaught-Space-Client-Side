@@ -13,6 +13,7 @@ import Dashboard from "../LayOut/Dashboard/Dashboard";
 import MyProfile from "../Pages/DashBoardItems/MyProfile/MyProfile";
 import AddPosts from "../Pages/DashBoardItems/AddPosts/AddPosts";
 import MyPosts from "../Pages/DashBoardItems/MyPosts/MyPosts";
+import AllUsers from "../Pages/DashBoardItems/AllUsers/AllUsers";
 
 
 
@@ -59,6 +60,11 @@ import MyPosts from "../Pages/DashBoardItems/MyPosts/MyPosts";
         {
           path: "myposts",
           element: <MyPosts></MyPosts>
+          
+        },
+        {
+          path: "allusers",
+          element: <AllUsers></AllUsers>
           
         },
       ]
