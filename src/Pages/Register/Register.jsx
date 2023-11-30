@@ -22,10 +22,13 @@ const Register = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                          // create user entry in the database
+                         const status = 'silver'
                          const userInfo = {
                             name: data.name,
                             email: data.email,
-                            photo: data.photoURL
+                            photo: data.photoURL,
+                            status
+
                          }
                          axiosPublic.post('/users', userInfo)
                          .then(res =>{

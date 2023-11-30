@@ -1,16 +1,24 @@
 
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../../hooks/UseAxiosSecure";
-import { FaTrashAlt, FaUsers } from "react-icons/fa";
+import {  FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { LuBadgeCheck } from "react-icons/lu";
 
-
+console.log(localStorage.getItem('access-token'))
 const AllUsers = () => {
     const axiosSecure = UseAxiosSecure();
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/users');
+            const res = await axiosSecure.get('/users' );
+            //  {
+            //     headers: {
+                    
+            //         authorization: `Bearer ${localStorage.getItem('access-token')}`
+            //     }
+            // }
+            
             return res.data;
         }
     })
@@ -39,11 +47,11 @@ const AllUsers = () => {
            <div className="border-b-2 border-black"></div>
         </div>
         <div className="overflow-x-auto">
-            <table className="table table-zebra w-full">
+            <table className="table table-zebra bg-purple-200 w-full">
                 {/* head */}
-                <thead>
-                    <tr className="text-purple-800 font-semibold text-lg ">
-                        <th></th>
+                <thead  className="bg-black text-purple-200">
+                    <tr className=" font-semibold text-lg ">
+                        <th ></th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Make Admin</th>
@@ -68,7 +76,8 @@ const AllUsers = () => {
                                 <button
                                     
                                     className="btn btn-ghost btn-lg">
-                                    <FaTrashAlt className="text-red-600"></FaTrashAlt>
+                                    <LuBadgeCheck className=""></LuBadgeCheck>
+                                   
                                 </button>
                             </td>
                         </tr>)
