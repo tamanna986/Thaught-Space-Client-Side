@@ -16,6 +16,8 @@ import MyPosts from "../Pages/DashBoardItems/MyPosts/MyPosts";
 import AllUsers from "../Pages/DashBoardItems/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AdminProfile from "../Pages/DashBoardItems/AdminProfile/AdminProfile";
+import MakeAnnouncement from "../Pages/DashBoardItems/MakeAnnouncement/MakeAnnouncement";
+import ReportedActivity from "../Pages/DashBoardItems/ReportedActivity/ReportedActivity";
 
 
 
@@ -66,12 +68,23 @@ import AdminProfile from "../Pages/DashBoardItems/AdminProfile/AdminProfile";
         },
         {
           path: "allusers",
-          element: <AllUsers></AllUsers>
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
           
         },
         {
-          path: "adminprofile",
+          // path: "adminprofile",
+          path: "/dashboard",
           element: <AdminRoute><AdminProfile></AdminProfile></AdminRoute>
+        },
+        {
+          
+          path: "/dashboard/announcement",
+          element: <AdminRoute><MakeAnnouncement></MakeAnnouncement></AdminRoute>
+        },
+        {
+          
+          path: "/dashboard/reportedactivities",
+          element: <AdminRoute><ReportedActivity></ReportedActivity></AdminRoute>
         }
       ]
     }

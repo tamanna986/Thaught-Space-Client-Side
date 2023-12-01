@@ -4,6 +4,7 @@ import UseAxiosSecure from "../../../hooks/UseAxiosSecure";
 import {  FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { LuBadgeCheck } from "react-icons/lu";
+import { Helmet } from "react-helmet-async";
 
 console.log(localStorage.getItem('access-token'))
 const AllUsers = () => {
@@ -42,8 +43,11 @@ const AllUsers = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Bistro Boss | manage Users</title>
+            </Helmet>
         <div className=" my-4">
-            <h2 className="text-2xl text-center font-semibold mb-5 text-purple-900 md:text-3xl ">All Users ({users.length})</h2>
+            <h2 className="text-2xl text-center font-semibold mb-5 text-purple-900 md:text-3xl ">All Users  <span className="text-sm">[{users.length}]</span></h2>
            <div className="border-b-2 border-black"></div>
         </div>
         <div className="overflow-x-auto">
