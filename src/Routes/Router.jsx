@@ -14,6 +14,8 @@ import MyProfile from "../Pages/DashBoardItems/MyProfile/MyProfile";
 import AddPosts from "../Pages/DashBoardItems/AddPosts/AddPosts";
 import MyPosts from "../Pages/DashBoardItems/MyPosts/MyPosts";
 import AllUsers from "../Pages/DashBoardItems/AllUsers/AllUsers";
+import AdminRoute from "./AdminRoute";
+import AdminProfile from "../Pages/DashBoardItems/AdminProfile/AdminProfile";
 
 
 
@@ -67,6 +69,10 @@ import AllUsers from "../Pages/DashBoardItems/AllUsers/AllUsers";
           element: <AllUsers></AllUsers>
           
         },
+        {
+          path: "adminprofile",
+          element: <AdminRoute><AdminProfile></AdminProfile></AdminRoute>
+        }
       ]
     }
 
