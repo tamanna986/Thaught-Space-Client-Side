@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import { AiOutlineBell } from "react-icons/ai";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useAnnouncement from "../../hooks/useAnnouncement";
 
 
 
 const NavbarLayOut = ({children}) => {
-
+  const [announcements] = useAnnouncement();
   const { user, logOut } = useContext(AuthContext)
   const handleSignOut = () => {
     logOut();
@@ -14,7 +15,7 @@ const NavbarLayOut = ({children}) => {
     const navItems = <>
     <li><Link to="/">Home</Link> </li>
     <li><Link to="/membership">Membership</Link></li>
-    <li><Link to="/"><AiOutlineBell className="mt-2"></AiOutlineBell></Link></li>
+    <li><Link to="/"><AiOutlineBell className="mt-2"></AiOutlineBell><p className="-ml-2">{announcements.length}</p></Link></li>
     
     
     { user?.email ?  <>

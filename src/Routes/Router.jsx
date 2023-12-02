@@ -18,6 +18,7 @@ import AdminRoute from "./AdminRoute";
 import AdminProfile from "../Pages/DashBoardItems/AdminProfile/AdminProfile";
 import MakeAnnouncement from "../Pages/DashBoardItems/MakeAnnouncement/MakeAnnouncement";
 import ReportedActivity from "../Pages/DashBoardItems/ReportedActivity/ReportedActivity";
+import Payment from "../Pages/DashBoardItems/Payment/Payment";
 
 
 
@@ -72,8 +73,12 @@ import ReportedActivity from "../Pages/DashBoardItems/ReportedActivity/ReportedA
           
         },
         {
-          // path: "adminprofile",
-          path: "/dashboard",
+          path: "/dashboard/payment",
+          element: <Payment></Payment>
+        },
+        {
+          path: "/dashboard/adminprofile",
+          // path: "/dashboard",
           element: <AdminRoute><AdminProfile></AdminProfile></AdminRoute>
         },
         {
