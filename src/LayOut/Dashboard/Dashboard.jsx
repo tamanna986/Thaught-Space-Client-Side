@@ -1,6 +1,7 @@
 import { FaAd, FaBookOpen, FaBookReader, FaCalendar, FaComment, FaFileInvoice, FaHome, FaList, FaSearch, FaShoppingCart, FaSoundcloud, FaUser } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../../hooks/useAdmin";
+import DashboardHome from "../../Pages/DashBoardItems/DashboardHome/DashboardHome";
 
 
 const Dashboard = () => {
@@ -42,8 +43,9 @@ const Dashboard = () => {
                         <>
                         <li>
                         <NavLink to="/dashboard">
-                            <FaHome></FaHome>
-                            User Dashboard </NavLink>
+                        <FaHome></FaHome>
+                            Dashboard Home
+                            </NavLink>
                             </li>
 
                          <li>

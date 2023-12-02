@@ -77,12 +77,19 @@ const AllUsers = () => {
                                 </button>}
                             </td>
                             <td>
-                                <button
-                                    
-                                    className="btn btn-ghost btn-lg">
-                                    <LuBadgeCheck className=""></LuBadgeCheck>
-                                   
-                                </button>
+                            {user.status === "golden" ?
+                            <>
+                            
+                            <img className="w-10 rounded-full" src="https://i.ibb.co/N6Qtvdb/3d-gold-badge-icon-png.png" alt="" />
+                            
+                            </>
+                            :
+                            <>
+                            
+                            <img className="w-10 rounded-full" src="https://i.ibb.co/ZmVm370/silver-badge-10139032-8266540.png" alt="" />
+                            </>
+                        }
+                                
                             </td>
                         </tr>)
                     }

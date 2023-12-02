@@ -19,6 +19,7 @@ import AdminProfile from "../Pages/DashBoardItems/AdminProfile/AdminProfile";
 import MakeAnnouncement from "../Pages/DashBoardItems/MakeAnnouncement/MakeAnnouncement";
 import ReportedActivity from "../Pages/DashBoardItems/ReportedActivity/ReportedActivity";
 import Payment from "../Pages/DashBoardItems/Payment/Payment";
+import DashboardHome from "../Pages/DashBoardItems/DashboardHome/DashboardHome";
 
 
 
@@ -52,6 +53,11 @@ import Payment from "../Pages/DashBoardItems/Payment/Payment";
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       errorElement: <ErrorPage></ErrorPage>,
       children: [
+        {
+          path: "/dashboard",
+          element: <DashboardHome></DashboardHome>
+          
+        },
         {
           path: "myprofile",
           element: <MyProfile></MyProfile>
