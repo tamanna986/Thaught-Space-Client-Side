@@ -14,7 +14,7 @@ const NavbarLayOut = ({children}) => {
   }
     const navItems = <>
     <li><Link to="/">Home</Link> </li>
-    <li><Link to="/membership">Membership</Link></li>
+    <li><Link to="/dashboard/payment">Membership</Link></li>
     <li><Link to="/"><AiOutlineBell className="mt-2"></AiOutlineBell><p className="-ml-2">{announcements.length}</p></Link></li>
     
     
@@ -22,7 +22,7 @@ const NavbarLayOut = ({children}) => {
         
       <div className="dropdown mr-2  md:mr-14">
   <label tabIndex={0} className="">
-  <img className="w-10 rounded-full mx-1 lg:mx-2" src={user.photoURL} alt={user.displayName}
+  <img className="w-10 h-10 rounded-full mx-1 lg:mx-2" src={user.photoURL} alt={user.displayName}
    
       />
   </label>

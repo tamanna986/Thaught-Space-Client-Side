@@ -55,22 +55,22 @@ import DashboardHome from "../Pages/DashBoardItems/DashboardHome/DashboardHome";
       children: [
         {
           path: "/dashboard",
-          element: <DashboardHome></DashboardHome>
+          element: <PrivateRoute><DashboardHome></DashboardHome></PrivateRoute>
           
         },
         {
           path: "myprofile",
-          element: <MyProfile></MyProfile>
+          element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
           
         },
         {
           path: "addposts",
-          element: <AddPosts></AddPosts> 
+          element: <PrivateRoute><AddPosts></AddPosts> </PrivateRoute>
           
         },
         {
           path: "myposts",
-          element: <MyPosts></MyPosts>
+          element: <PrivateRoute><MyPosts></MyPosts></PrivateRoute>
           
         },
         {
@@ -80,7 +80,7 @@ import DashboardHome from "../Pages/DashBoardItems/DashboardHome/DashboardHome";
         },
         {
           path: "/dashboard/payment",
-          element: <Payment></Payment>
+          element: <PrivateRoute><Payment></Payment></PrivateRoute>
         },
         {
           path: "/dashboard/adminprofile",

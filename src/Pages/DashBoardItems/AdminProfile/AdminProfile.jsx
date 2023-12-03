@@ -45,7 +45,7 @@ const AdminProfile = () => {
             </Helmet>
         <SectionTitle heading = {"Admin Profile"}></SectionTitle>
             <div className="flex gap-4 items-center card shadow-2xl  py-10  relative border-t border-purple-400">
-                <div className="avatar online absolute bottom-28">
+                <div className="avatar online absolute bottom-36 md:bottom-28">
                     <div className="w-16 rounded-full">
                         <img src={user.photoURL} />
                     </div>

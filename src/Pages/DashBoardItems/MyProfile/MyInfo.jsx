@@ -2,7 +2,7 @@
 
 const MyInfo = ({info}) => {
     return (
-        <div className="flex gap-4 items-center card shadow-2xl  py-10  relative border-t border-purple-400 ">
+        <div className="flex gap-4 items-center card shadow-2xl  py-10  relative border-t border-purple-400 px-5">
         <div className="avatar online absolute bottom-48">
             <div className="w-16 rounded-full">
                 <img src={info.photo} />

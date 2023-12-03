@@ -6,6 +6,8 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import MyInfo from "./MyInfo";
 import SilverProfile from "./SilverProfile";
+import usePost from "../../../hooks/usePost";
+import MyPost from "./MyPost/MyPost";
 
 
 const MyProfile = () => {
@@ -13,21 +15,11 @@ const MyProfile = () => {
     const [currentUser , setCurrentUser] = useState([]);
     const { user } = useContext(AuthContext);
     const [badge, setBadge] = useState('')
+    const [posts] = usePost();
     
-
-    // const myInfo = allUsers.filter(specificUser =>specificUser.email === user.email )
-    // if (!loading && Array.isArray(Allusers) && Allusers.length > 0) {
-    //     const filteredUsers = Allusers.filter(presentUser =>presentUser.email === user.email); 
-
-    //     // console.log("Filtered Users", filteredUsers);
-    //     const isGolden = filteredUsers.some(user => user.status === "golden");
-
-    //     if (isGolden) {
-    //         setBadge("golden");
-    //     }
-
-
-    // }
+//    checking same users post
+const post = posts.filter( post => post.authorEmail === user.email)
+console.log(posts, post)
 
     useEffect(() => {
         if (!loading && Array.isArray(Allusers) && Allusers.length > 0) {
@@ -63,28 +55,14 @@ const MyProfile = () => {
                   
                   }
 
-                    <button disabled className="btn mt-2 bg-purple-300 border-0 border-b-4 text-lg border-black w-full">
-                        Already Paid
-                    </button>
-
-                    {/* {
-                    badge === "golden" ?
-                        <button disabled className="btn mt-2 bg-purple-300 border-0 border-b-4 text-lg border-black w-full">
-                            Already Paid
-                        </button>
-                        :
-                        <Link to="/dashboard/payment">
-                            <button className="btn mt-2 bg-purple-300 border-0 border-b-4 text-lg border-black w-full">
-                                Pay
-                            </button>
-                        </Link>
-                } */}
-
+                 
 
                 </>
                 :
                 <>
-                {
+              <div className="">
+              <div className="  ">
+              {
                   currentUser.map(info => 
                     <SilverProfile
                     key = {info._id}
@@ -94,9 +72,10 @@ const MyProfile = () => {
                     )
                   
                   }
+              </div>
                 
-                    <div className="w-52 md:w-80  card shadow-xl p-5 mx-auto">
-                        <h1 className="text-sm text-purple-950 font-bold ">Proceed to payment to get the Golden Badge and avail the opportunity to post unlimited  </h1>
+                    {/* <div className=" card shadow-xl p-5 mx-auto border-0 border-t border-purple-600 text-center  ">
+                        <h1 className="text-sm text-purple-950 pt-5 font-bold ">Proceed to payment to get the Golden Badge and avail the opportunity to post unlimited  </h1>
                         <h2 className="text-sm text-black font-bold mt-3">Amount : $1000</h2>
 
                         <Link to="/dashboard/payment">
@@ -104,7 +83,24 @@ const MyProfile = () => {
                                 Pay
                             </button>
                         </Link>
-                    </div>
+                    </div> */}
+                    <h1 className= "mt-20"><SectionTitle heading = {"My 3 Recent Posts"}></SectionTitle></h1>
+                  <div className="grid grid-cols-1  lg:grid-cols-3 gap-4 mt-10">
+                    
+                  {
+                    post.slice(3, 6).map(myPost =>
+                        <MyPost
+                        key = {myPost._id}
+                        myPost = {myPost}
+                        >
+
+                        </MyPost>
+                        
+                        )
+
+                  }
+                  </div>
+              </div>
                 </>
             }
         </div>

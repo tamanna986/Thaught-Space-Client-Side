@@ -77,7 +77,7 @@ const AllUsers = () => {
                                 </button>}
                             </td>
                             <td>
-                            {user.status === "golden" ?
+                            {user.status === "golden" || user.role === "admin" ? 
                             <>
                             
                             <img className="w-10 rounded-full" src="https://i.ibb.co/N6Qtvdb/3d-gold-badge-icon-png.png" alt="" />
