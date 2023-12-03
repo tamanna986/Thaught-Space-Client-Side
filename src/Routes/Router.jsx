@@ -20,6 +20,7 @@ import MakeAnnouncement from "../Pages/DashBoardItems/MakeAnnouncement/MakeAnnou
 import ReportedActivity from "../Pages/DashBoardItems/ReportedActivity/ReportedActivity";
 import Payment from "../Pages/DashBoardItems/Payment/Payment";
 import DashboardHome from "../Pages/DashBoardItems/DashboardHome/DashboardHome";
+import PostDetail from "../Pages/Home/PostDetail/PostDetail";
 
 
 
@@ -44,6 +45,11 @@ import DashboardHome from "../Pages/DashBoardItems/DashboardHome/DashboardHome";
         {
             path: "/register",
             element: <Register></Register>,   
+        },
+        {
+            path: "/post/:id",
+            element: <PostDetail></PostDetail>,  
+            loader: ({params}) => fetch(`http://localhost:5000/posts/${params.id}`) 
         }
         
       ]

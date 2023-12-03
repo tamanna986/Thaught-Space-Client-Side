@@ -10,14 +10,17 @@ import AwesomeButtonStyles from 'react-awesome-button/src/styles/styles.scss';
 
 const Banner = () => {
 
-
+    // const handleSearchCategory = (searchCategory) => {
+    //     setCategoryName(searchCategory);
+    // };
 
     return (
         <div className='mb-20'>
             <AwesomeSlider animation="cubeAnimation" >
 
                 <div className="bg-[url('https://i.ibb.co/7YwqNZ8/line-background-96-generated.jpg')] bg-cover bg-fixed w-full h-full ">
-                    <UseSearch></UseSearch>
+                    {/* <UseSearch onSearch={handleSearchCategory}></UseSearch> */}
+                    <UseSearch ></UseSearch>
                     <div className='w-[420px] md:w-[800px]   mx-auto mt-0 md:mt-10 lg:mt-40 space-y-1 md:space-y-6'>
                         <h1 className='text-center text-lg lg:text-4xl font-semibold text-purple-100 '>Where minds collide and thoughts intertwine, Thought Space beckons, inviting you to share, connect, and enlighten.</h1>
                         <p className='text-center text-sm lg:text-2xl font-semibold text-gray-400 '>Get Golden badge and make unlimited post by purchasing membership! </p>
