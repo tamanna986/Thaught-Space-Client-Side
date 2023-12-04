@@ -4,20 +4,28 @@ import usePost from "../../../hooks/usePost";
 import useVotes from "../../../hooks/useVotes";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { FaTrashAlt } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
-import useComments from "../../../hooks/useComments";
+import { NavLink, Outlet } from "react-router-dom";
+
+
 
 
 const MyPosts = () => {
     const {user} = useContext(AuthContext)
     const [votes] = useVotes();
-    const [comments] = useComments();
+  
+   
 
    const specificUserPosts = votes.filter(specificUserPost => specificUserPost.authorEmail === user.email)
-   console.log("ooooo", specificUserPosts)
+//    console.log("ooooo", specificUserPosts)
     
-//    const specificComment = votes.filter(specificComment => specificComment.postId === user._id)
-   console.log("ooooo", specificUserPosts)
+//    const specificComment = comments.filter(specificComment => specificComment.postId
+//     === user._id)
+//    console.log("comment gula check",comments,  specificComment )
+
+//    useEffect(() => {
+//     const comentedId = specificComment.map(newcommentId => setCommentId(newcommentId))
+//     console.log("ooooo", commentId)
+//   }, [specificComment]);
 
 
     return (
@@ -47,7 +55,7 @@ const MyPosts = () => {
                                 <td>{user.postTitle}</td>
                                 <td>{user?.upVote - user?.downVote}</td>
                                 <td>
-                                    <NavLink to ={`/dashboard/myposts/comment/${user._id}`}>
+                                    <NavLink to ={`/dashboard/comment/${user._id}`}>
                                         <button className="btn bg-purple-400 text-white">Comment</button></NavLink>
                                 </td>
                                 <td>
@@ -60,7 +68,12 @@ const MyPosts = () => {
 
                     </tbody>
                 </table>
+                {/* <Outlet></Outlet> */}
             </div>
+
+            {/* <div className="hidden">
+                <Comment userId =  {user._id}></Comment>
+            </div> */}
         </div>
 
     );

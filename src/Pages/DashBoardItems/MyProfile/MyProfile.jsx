@@ -93,7 +93,7 @@ const MyProfile = () => {
                         <div className="grid grid-cols-1  lg:grid-cols-3 gap-4 mt-10">
 
                             {
-                                post.slice(3, 6).map(myPost =>
+                                post.slice(2, 5).map(myPost =>
                                     <MyPost
                                         key={myPost._id}
                                         myPost={myPost}

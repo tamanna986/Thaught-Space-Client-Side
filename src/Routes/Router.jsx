@@ -50,7 +50,7 @@ import Comment from "../Pages/Comment/Comment";
         {
             path: "/post/:id",
             element: <PostDetail></PostDetail>,  
-            loader: ({params}) => fetch(`http://localhost:5000/posts/${params.id}`) 
+            loader: ({params}) => fetch(`https://thaught-space-server.vercel.app/posts/${params.id}`) 
         }
         
         
@@ -78,14 +78,15 @@ import Comment from "../Pages/Comment/Comment";
         },
         {
           path: "myposts",
-          element: <PrivateRoute><MyPosts></MyPosts></PrivateRoute>,
-          children: [
-            {
-              path: "comment/:id",
-              element: <Comment></Comment>,
-              loader: ({ params }) => fetch(`http://localhost:5000/comments/${params.id}`)
-            },
-          ]
+          element: <PrivateRoute><MyPosts></MyPosts></PrivateRoute>
+          // children: [
+          //   {
+          //     path: "comment/:id",
+          //     element: <Comment></Comment>,
+          //     // loader: ({ params }) => fetch(`https://thaught-space-server.vercel.app/comments/${params.id}`)
+          //     loader: ({ params }) => fetch(`https://thaught-space-server.vercel.app/comments/${params.id}`)
+          //   },
+          // ]
           
         },
         {
@@ -93,11 +94,11 @@ import Comment from "../Pages/Comment/Comment";
           element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
           
         },
-      //   {
-      //     path: "comment/:id",
-      //     element: <Comment></Comment>,  
-      //     loader: ({params}) => fetch(`http://localhost:5000/comments/${params.id}`) 
-      // },
+        {
+          path: "comment/:id",
+          element: <Comment></Comment>,  
+          loader: ({params}) => fetch(`https://thaught-space-server.vercel.app/comments/${params.id}`) 
+      },
         {
           path: "/dashboard/payment",
           element: <PrivateRoute><Payment></Payment></PrivateRoute>

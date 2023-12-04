@@ -50,7 +50,7 @@ const AllUsers = () => {
             <h2 className="text-2xl text-center font-semibold mb-5 text-purple-900 md:text-3xl ">All Users  <span className="text-sm">[{users.length}]</span></h2>
            <div className="border-b-2 border-black"></div>
         </div>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto w-1/2 md:w-full">
             <table className="table table-zebra bg-purple-200 w-full">
                 {/* head */}
                 <thead  className="bg-black text-purple-200">

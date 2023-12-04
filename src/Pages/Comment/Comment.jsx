@@ -1,9 +1,13 @@
 import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import useComments from "../../hooks/useComments";
 
 
 const Comment = () => {
-    const {commenterEmail,postId, postTitle,Comment} = useLoaderData();
+    // const {id} = useLoaderData()
+
+    const [comments] = useComments();
+    // console.log(comments, id);
     return (
         <div className="">
         <SectionTitle  heading = {"All Comments"}></SectionTitle>
@@ -14,7 +18,7 @@ const Comment = () => {
                 {/* head */}
                 <thead>
                     <tr className="font-bold text-lg text-purple-950">
-                        <th></th>
+                       
                         <th>Commented by</th>
                         <th>Comment</th>
                         <th>Feedback</th>
@@ -22,15 +26,15 @@ const Comment = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    
-                       
-                           
-                            <td>{commenterEmail}</td>
-                            <td>{comment}</td>
+                     
+                            <td>email</td>
+                            
+                            {/* <td>{comment}</td> */}
                             <td>
                                 
                                     <button className="btn bg-purple-400 text-white">Comment</button>
                             </td>
+                            <td>feedback</td>
                             <td>
                                 <button className="btn btn-danger btn-lg">
                                     Report
