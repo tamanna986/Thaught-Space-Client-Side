@@ -19,7 +19,7 @@ const ShowPosts = ({ aPost }) => {
     const totalVotes = votes.filter(totalVote => totalVote._id === aPost._id)
     refetch();
 
-    console.log(totalVotes, "total vote")
+    // console.log(totalVotes, "total vote")
     return (
 
        <NavLink to = {`/post/${aPost._id}`}>

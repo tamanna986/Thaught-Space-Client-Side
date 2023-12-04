@@ -17,7 +17,7 @@ import SingleAnnouncement from "../SingleAnnouncement/SingleAnnouncement";
 
 const Announcement = () => {
     const [announcements] = useAnnouncement();
-    console.log("announcements is now ", announcements, announcements.length)
+    // console.log("announcements is now ", announcements, announcements.length)
     return (
         <div className="mt-32">
             <SectionTitle heading = {"Announcement"}></SectionTitle>
@@ -39,7 +39,7 @@ const Announcement = () => {
         className="mySwiper"
       >
         {announcements.map(announcement => (
-                    <SwiperSlide key={announcement.id}>
+                    <SwiperSlide key={announcement._id}>
                         <SingleAnnouncement announcement={announcement} />
                     </SwiperSlide>
                 ))}

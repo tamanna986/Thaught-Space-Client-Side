@@ -21,6 +21,7 @@ import ReportedActivity from "../Pages/DashBoardItems/ReportedActivity/ReportedA
 import Payment from "../Pages/DashBoardItems/Payment/Payment";
 import DashboardHome from "../Pages/DashBoardItems/DashboardHome/DashboardHome";
 import PostDetail from "../Pages/Home/PostDetail/PostDetail";
+import Comment from "../Pages/Comment/Comment";
 
 
 
@@ -52,10 +53,11 @@ import PostDetail from "../Pages/Home/PostDetail/PostDetail";
             loader: ({params}) => fetch(`http://localhost:5000/posts/${params.id}`) 
         }
         
+        
       ]
     },
     {
-      path: "dashboard",
+      path: "/dashboard",
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       errorElement: <ErrorPage></ErrorPage>,
       children: [
@@ -76,7 +78,14 @@ import PostDetail from "../Pages/Home/PostDetail/PostDetail";
         },
         {
           path: "myposts",
-          element: <PrivateRoute><MyPosts></MyPosts></PrivateRoute>
+          element: <PrivateRoute><MyPosts></MyPosts></PrivateRoute>,
+          children: [
+            {
+              path: "comment/:id",
+              element: <Comment></Comment>,
+              loader: ({ params }) => fetch(`http://localhost:5000/comments/${params.id}`)
+            },
+          ]
           
         },
         {
@@ -84,6 +93,11 @@ import PostDetail from "../Pages/Home/PostDetail/PostDetail";
           element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
           
         },
+      //   {
+      //     path: "comment/:id",
+      //     element: <Comment></Comment>,  
+      //     loader: ({params}) => fetch(`http://localhost:5000/comments/${params.id}`) 
+      // },
         {
           path: "/dashboard/payment",
           element: <PrivateRoute><Payment></Payment></PrivateRoute>

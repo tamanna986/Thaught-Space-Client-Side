@@ -56,7 +56,7 @@ const signInWithGoogle = () =>{
     }
 
     setLoading(false);
-    console.log('setted user is' , currentUser)
+    // console.log('setted user is' , currentUser)
      })
      return () =>{
         unSubscribe();
