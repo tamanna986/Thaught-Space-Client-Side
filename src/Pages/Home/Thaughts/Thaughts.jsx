@@ -50,7 +50,7 @@ const Thaughts = () => {
             <p>Loading...</p>
         ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4">
-                {posts.map(aPost => (
+                {posts.slice().reverse().map(aPost => (
                     <ShowPosts
                         key={aPost._id}
                         aPost={aPost}

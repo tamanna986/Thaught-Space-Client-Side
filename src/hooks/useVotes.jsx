@@ -7,7 +7,8 @@ const useVotes = () => {
     const {data: votes = [], isPending: loading, refetch} = useQuery({
         queryKey: ['votes'], 
         queryFn: async() =>{
-            const res = await axiosPublic.get('/votes');
+            // const res = await axiosPublic.get('/votes');
+            const res = await axiosPublic.get('/posts');
             return res.data;
         }
     })

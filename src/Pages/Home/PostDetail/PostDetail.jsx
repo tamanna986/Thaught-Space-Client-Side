@@ -19,35 +19,36 @@ const PostDetail = () => {
     const {user} = useContext(AuthContext)
     const axiosSecure = UseAxiosSecure();
     const [votes, , refetch] = useVotes();
-
-    const totalVotes = votes.filter(totalVote => totalVote.postId === _id)
-    // console.log(totalVotes[0].upVote)
+    console.log(votes ,"dekmu amr vote")
+    const totalVotes = votes.filter(totalVote => totalVote._id === _id)
+    // const totalVotes = votes.filter(totalVote => console.log(totalVote.postId))
+    // console.log("id", _id)
+    console.log("id", totalVotes)
     const shareUrl = `http://localhost:5173/post/${_id}`;
 
     const { register, handleSubmit, reset } = useForm();
 
 
-// Inside PostDetail component
-const handleUpVote = async () => {
-    try {
-        await axiosSecure.patch(`/posts/upvote/${_id}`);
-        refetch();
-        // Refresh or update the UI accordingly
-    } catch (error) {
-        console.error('Error upvoting post:', error);
-    }
-};
-
-const handleDownVote = async () => {
-    try {
-        await axiosSecure.patch(`/posts/downvote/${_id}`);
-        refetch();
-        // Refresh or update the UI accordingly
-    } catch (error) {
-        console.error('Error downvoting post:', error);
-    }
-};
-
+    const handleUpVote = async () => {
+        try {
+            await axiosSecure.patch(`/posts/upvote/${_id}`);
+            refetch();
+            // Refresh or update the UI accordingly
+        } catch (error) {
+            console.error('Error upvoting post:', error);
+        }
+    };
+    
+    const handleDownVote = async () => {
+        try {
+            await axiosSecure.patch(`/posts/downvote/${_id}`);
+            refetch();
+            // Refresh or update the UI accordingly
+        } catch (error) {
+            console.error('Error downvoting post:', error);
+        }
+    };
+    
 
     const onSubmit = async (data) => {
         // console.log(data.comment)
@@ -117,8 +118,10 @@ const handleDownVote = async () => {
     </form>
     
    
-   <button className="flex items-center gap-1" onClick={handleUpVote}>{totalVotes[0].upVote}<SlLike /></button>
-   <button className="flex items-center gap-1"  onClick={handleDownVote}>{totalVotes[0].downVote}<SlDislike /></button>
+   <button className="flex items-center gap-1" onClick={handleUpVote}>{totalVotes[0]?.upVote}<SlLike /></button>
+   <button className="flex items-center gap-1"  onClick={handleDownVote}>{totalVotes[0]?.downVote}<SlDislike /></button>
+   {/* <button className="flex items-center gap-1" onClick={handleUpVote}><SlLike /></button>
+   <button className="flex items-center gap-1"  onClick={handleDownVote}><SlDislike /></button> */}
 
 
     <div className="">

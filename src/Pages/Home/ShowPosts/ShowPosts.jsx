@@ -8,7 +8,7 @@ import useVotes from "../../../hooks/useVotes";
 
 const ShowPosts = ({ aPost }) => {
    
-    const [votes] = useVotes();
+    const [votes, , refetch] = useVotes();
     // console.log("votes", votes)
     const [comments] = useComments();
     // console.log(comments)
@@ -16,9 +16,10 @@ const ShowPosts = ({ aPost }) => {
     
     const totalSpecificComments = comments.filter(totalSpecificComment => totalSpecificComment.postId === aPost._id)
     
-    const totalVotes = votes.filter(totalVote => totalVote.postId === aPost._id)
+    const totalVotes = votes.filter(totalVote => totalVote._id === aPost._id)
+    refetch();
 
-    // console.log(totalVotes)
+    console.log(totalVotes, "total vote")
     return (
 
        <NavLink to = {`/post/${aPost._id}`}>
@@ -40,7 +41,7 @@ const ShowPosts = ({ aPost }) => {
 
                 <div className="card-actions justify-around border-0 border-t-2 border-5 border-purple-950  mt-5 -mx-5 py-3">
                     <h2 className="text-purple-950 font-semibold ">{totalSpecificComments.length} Comments</h2>
-                    <h2 className="text-purple-950 font-semibold ">{totalVotes.length} Votes</h2>
+                    <h2 className="text-purple-950 font-semibold ">{totalVotes[0]?.upVote - totalVotes[0]?.downVote} Votes</h2>
 
                 </div>
             </div>
