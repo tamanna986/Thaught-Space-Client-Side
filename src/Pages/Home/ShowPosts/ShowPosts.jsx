@@ -2,11 +2,23 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { Button } from "keep-react";
 import { NavLink } from "react-router-dom";
+import useComments from "../../../hooks/useComments";
+import useVotes from "../../../hooks/useVotes";
 
 
 const ShowPosts = ({ aPost }) => {
+   
+    const [votes] = useVotes();
+    // console.log("votes", votes)
+    const [comments] = useComments();
+    // console.log(comments)
 
-    // console.log(aPost)
+    
+    const totalSpecificComments = comments.filter(totalSpecificComment => totalSpecificComment.postId === aPost._id)
+    
+    const totalVotes = votes.filter(totalVote => totalVote.postId === aPost._id)
+
+    // console.log(totalVotes)
     return (
 
        <NavLink to = {`/post/${aPost._id}`}>
@@ -27,8 +39,8 @@ const ShowPosts = ({ aPost }) => {
                 </div>
 
                 <div className="card-actions justify-around border-0 border-t-2 border-5 border-purple-950  mt-5 -mx-5 py-3">
-                    <h2 className="text-purple-950 font-semi-bold "> Comments</h2>
-                    <h2 className="text-purple-950 font-semi-bold "> Votes</h2>
+                    <h2 className="text-purple-950 font-semibold ">{totalSpecificComments.length} Comments</h2>
+                    <h2 className="text-purple-950 font-semibold ">{totalVotes.length} Votes</h2>
 
                 </div>
             </div>

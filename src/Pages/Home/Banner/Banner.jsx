@@ -20,7 +20,7 @@ const Banner = () => {
 
                 <div className="bg-[url('https://i.ibb.co/7YwqNZ8/line-background-96-generated.jpg')] bg-cover bg-fixed w-full h-full ">
                     {/* <UseSearch onSearch={handleSearchCategory}></UseSearch> */}
-                    <UseSearch ></UseSearch>
+                    {/* <UseSearch ></UseSearch> */}
                     <div className='w-[420px] md:w-[800px]   mx-auto mt-0 md:mt-10 lg:mt-40 space-y-1 md:space-y-6'>
                         <h1 className='text-center text-lg lg:text-4xl font-semibold text-purple-100 '>Where minds collide and thoughts intertwine, Thought Space beckons, inviting you to share, connect, and enlighten.</h1>
                         <p className='text-center text-sm lg:text-2xl font-semibold text-gray-400 '>Get Golden badge and make unlimited post by purchasing membership! </p>
@@ -36,7 +36,7 @@ const Banner = () => {
                     </div>
                 </div>
                 <div className="bg-[url('https://i.ibb.co/yhRNszh/wave-haikei-1.png')] bg-cover w-full h-full  ">
-                    <UseSearch></UseSearch>
+                    {/* <UseSearch></UseSearch> */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-1 mt-1 md:mt-20 lg:mt-36 ">
                         <div className='space-y-0 md:space-y-7 ml-1 md:ml-32 col-span-2'>
                             <h1 className='text-center text-2xl lg:text-4xl font-semibold text-purple-900 '>In the vast expanse of ideas, Thought Space thrives, a sanctuary for your musings, a playground for discourse.</h1>

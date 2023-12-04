@@ -4,7 +4,7 @@ const Tag = ({tag}) => {
     return (
         <div>
             
-      <p className="text-sm ">#{tag.tag}</p>
+      <p className="text-sm ">{tag.tag}</p>
         </div>
     );
 };

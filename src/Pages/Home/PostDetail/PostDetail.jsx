@@ -8,13 +8,75 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import { useContext } from "react";
 import "./Share/share.css";
 import { WhatsappIcon, WhatsappShareButton } from "react-share";
+import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
+import UseAxiosSecure from "../../../hooks/UseAxiosSecure";
+import useVotes from "../../../hooks/useVotes";
+
+
 const PostDetail = () => {
     const {_id, authorName, authorEmail, postTitle,postDescription,category,upVote,downVote,image,postTime} = useLoaderData();
     const {user} = useContext(AuthContext)
+    const axiosSecure = UseAxiosSecure();
+    const [votes, , refetch] = useVotes();
 
+    const totalVotes = votes.filter(totalVote => totalVote.postId === _id)
+    // console.log(totalVotes[0].upVote)
     const shareUrl = `http://localhost:5173/post/${_id}`;
-   
 
+    const { register, handleSubmit, reset } = useForm();
+
+
+// Inside PostDetail component
+const handleUpVote = async () => {
+    try {
+        await axiosSecure.patch(`/posts/upvote/${_id}`);
+        refetch();
+        // Refresh or update the UI accordingly
+    } catch (error) {
+        console.error('Error upvoting post:', error);
+    }
+};
+
+const handleDownVote = async () => {
+    try {
+        await axiosSecure.patch(`/posts/downvote/${_id}`);
+        refetch();
+        // Refresh or update the UI accordingly
+    } catch (error) {
+        console.error('Error downvoting post:', error);
+    }
+};
+
+
+    const onSubmit = async (data) => {
+        // console.log(data.comment)
+ 
+            // now send the comment to the server 
+            const comment = {
+                commenterEmail: user.email ,
+                postId: _id,
+                postTitle: postTitle,
+                comment: data.comment
+                
+            }
+            
+            const commentItems = await axiosSecure.post('/comments', comment);
+            console.log(commentItems.data)
+            if(commentItems.data.insertedId){
+                // show success popup
+                reset();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${data.comment} is added to the post.`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        
+        
+    };
 
     return (
         
@@ -44,13 +106,21 @@ const PostDetail = () => {
     user ?
     <>
  
- <div className="card-actions justify-around border-0 border-t-2 border-5 border-purple-950  mt-5 -mx-5 py-3">
-    <form className="flex gap-1 items-center">
+ <div  className="card-actions justify-around border-0 border-t-2 border-5 border-purple-950  mt-5 -mx-5 py-3">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex gap-1 items-center">
     <FaComment />
-        <input className="outline-none border-0 border-b-1 border-purple-400" type="text" name="" id="name" placeholder="Type a comment here." />
+        <input className="outline-none border-0 p-2" type="text" name="comment" id="name" placeholder="Type a comment here."
+        {...register('comment', { required: true })}
+        required
+        />
+        <input type="submit" value="submit"  className="bg-purple-200 text-purple-950 py-2 px-1" />
     </form>
-    <SlLike />
-    <SlDislike />
+    
+   
+   <button className="flex items-center gap-1" onClick={handleUpVote}>{totalVotes[0].upVote}<SlLike /></button>
+   <button className="flex items-center gap-1"  onClick={handleDownVote}>{totalVotes[0].downVote}<SlDislike /></button>
+
+
     <div className="">
 <div className="Demo__some-network">
         <WhatsappShareButton

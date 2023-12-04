@@ -42,7 +42,7 @@ const Thaughts = () => {
     return (
         <div>
         {/* Pass handleSearchCategory function as onSearch prop */}
-        <UseSearch onSearch={handleSearchCategory} />
+        <div className='absolute top-56 left-0 md:top-[330px] lg:top-20 md:left-2 lg:left-10 w-full'><UseSearch onSearch={handleSearchCategory} /></div>
 
         <SectionTitle heading="Thoughts" />
 

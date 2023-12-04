@@ -32,10 +32,10 @@ const UseSearch = ({ onSearch }) => {
     };
 
     return (
-        <form className="p-5 my-1 lg:my-10 w-3/4 mx-auto" onSubmit={handleSubmit}>
+        <form className="p-5 my-1 lg:my-10 w-3/4 mx-auto flex " onSubmit={handleSubmit}>
             <input
                 type="text"
-                placeholder="Search By Tags"
+                placeholder="Copy Tags & Search By them for better result"
                 className="px-9 w-full border-none input outline-none"
                 value={searchValue}
                 onChange={handleChange}
