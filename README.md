@@ -29,3 +29,7 @@ https://thaught-space.web.app/
 ***Admin login ***
  mail: mi@gmail.com
  pass: Mi@123456
+
+
+ **Technology & Tools used**
+HTML, CSS, Tailwind, React, Node.js, MongoDB
